@@ -1,8 +1,7 @@
-import os.path
+import os
 from selene.support.shared import browser
 from selene import have
 
-picture = os.path.abspath(os.path.join(os.path.dirname(__file__), 'resources', 'screen.png'))
 
 def test_demoqa():
     #name, gender, contacts
@@ -22,14 +21,14 @@ def test_demoqa():
     browser.element('[id="subjectsInput"]').click().type('Maths').press_enter()
     browser.element('[for="hobbies-checkbox-1"]').click()
     #picture
-    browser.element('#uploadPicture').send_keys(picture)
+    browser.element('#uploadPicture').set_value(os.path.abspath('resources/screen.png'))
     #adress
     browser.element('[id="currentAddress"]').type('none')
     browser.element('[id="react-select-3-input"]').type('NCR').press_enter()
     browser.element('[id="react-select-4-input"]').type('Delhi').press_enter()
     #submit
     browser.element('[id="submit"]').press_enter()
-    browser.element('[class="table-responsive"]').should(have.text('Alexey'
+    browser.element('.table').should(have.text('Alexey'
     and 'Filin'
     and 'rsimr3@gmail.com'
     and 'Male'
