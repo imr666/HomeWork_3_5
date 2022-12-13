@@ -29,8 +29,7 @@ def test_demoqa():
     browser.element('[id="react-select-4-input"]').type('Delhi').press_enter()
     #submit
     browser.element('[id="submit"]').press_enter()
-    browser.element('[class="table-responsive"]').should(have.text(
-    'Alexey'
+    browser.element('[class="table-responsive"]').should(have.text('Alexey'
     and 'Filin'
     and 'rsimr3@gmail.com'
     and 'Male'
